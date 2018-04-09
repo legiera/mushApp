@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_eestechchallenge-master" default="compile.module.eestechchallenge-master">
+  <dirname property="module.eestechchallenge-master.basedir" file="${ant.file.module_eestechchallenge-master}"/>
+  
+  <property name="module.jdk.home.eestechchallenge-master" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.eestechchallenge-master" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.eestechchallenge-master" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.eestechchallenge-master" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="eestechchallenge-master.output.dir" value="undefined"/>
+  <property name="eestechchallenge-master.testoutput.dir" value="undefined"/>
+  
+  <path id="eestechchallenge-master.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="eestechchallenge-master.module.production.classpath">
+    <path refid="${module.jdk.classpath.eestechchallenge-master}"/>
+    <path refid="library.javadoc.classpath"/>
+    <path refid="library.javadoc1.classpath"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="eestechchallenge-master.runtime.production.module.classpath">
+    <path refid="library.javadoc.classpath"/>
+    <path refid="library.javadoc1.classpath"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="eestechchallenge-master.module.classpath">
+    <path refid="${module.jdk.classpath.eestechchallenge-master}"/>
+    <path refid="library.javadoc.classpath"/>
+    <path refid="library.javadoc1.classpath"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="eestechchallenge-master.runtime.module.classpath">
+    <path refid="library.javadoc.classpath"/>
+    <path refid="library.javadoc1.classpath"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.eestechchallenge-master">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.eestechchallenge-master">
+    <patternset refid="excluded.from.module.eestechchallenge-master"/>
+  </patternset>
+  
+  
+  <target name="compile.module.eestechchallenge-master" depends="compile.module.eestechchallenge-master.production,compile.module.eestechchallenge-master.tests" description="Compile module eestechchallenge-master"/>
+  
+  <target name="compile.module.eestechchallenge-master.production" depends="register.custom.compilers" description="Compile module eestechchallenge-master; production classes"/>
+  
+  <target name="compile.module.eestechchallenge-master.tests" depends="register.custom.compilers,compile.module.eestechchallenge-master.production" description="compile module eestechchallenge-master; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.eestechchallenge-master" description="cleanup module">
+    <delete dir="${eestechchallenge-master.output.dir}"/>
+    <delete dir="${eestechchallenge-master.testoutput.dir}"/>
+  </target>
+</project>
